@@ -1,0 +1,23 @@
+package tester;
+import java.util.Scanner;
+public class NameFormat {
+	public static void main(String[]arg) {
+		Scanner input = new Scanner(System.in);
+		String line;
+		String f;
+		String m;
+		String l;
+		
+		line = input.nextLine();
+				String[] lineSplit = line.split(" ");
+				
+				f = lineSplit[0];
+				m = lineSplit[1];
+				l = lineSplit[2];
+				
+				System.out.println(f + ", " + l + " " + m.charAt(0) + ".");
+		
+	
+	}
+
+}
