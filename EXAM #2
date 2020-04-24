@@ -1,4 +1,5 @@
 import java.util.Scanner;
+
 public class Main {
 	
 	public static void printTitle() {
@@ -13,27 +14,8 @@ public class Main {
 		System.out.println();
 		
 	}
-	
-	public static int[] newArray (Scanner userIn, String string) {	//the point of creating this string first is to determine the size of the upcoming array
-		
-
-	}
-
-	public static void organizeArray() {
-		
-	}
-	
-	public static void main(String[]arg) {
-		Scanner userIn = new Scanner(System.in);
-		String numString = "";  //list of numbers as a string because im not sure how to change the array size based on his input
-		int arrayLength = 0;	//to count the length of inputs
-		Main.printTitle();
-		
-		
-		System.out.println("Enter int values, enter 000 to end input");
-		/*
-			boolean toggle = false;  //While this is false the while loop will run
-		
+	public static String storeNumbers(Scanner userIn, String numString) {
+		boolean toggle = false;
 		while(toggle == false) {
 			for(int i = 0; i < 50; i++) {
 				int in = userIn.nextInt();
@@ -42,25 +24,47 @@ public class Main {
 					break;
 				}
 				numString = numString + " " + Integer.toString(in);
-				arrayLength++;
 			}
 		}
-		numString = numString.substring(2, numString.length());
-		 */
+		return numString;
+	}
+	
+	public static int[] storeArrayValues(String numString, int arrayLength) {
+		int[] numList = new int[arrayLength];
+		String[] temporary = numString.trim().split(" ");
 		
+		for(int i = 0; i < arrayLength; i++) {
+			numList[i] = Integer.parseInt(temporary[i]);
+		}
 
+		return numList;
 		
-		System.out.println(arrayLength);
-		int[] numbers = new int[arrayLength];
+	}
+	
+	public static void main(String[]arg) {
+		Scanner userIn = new Scanner(System.in);
+		String numString = "";  //list of numbers as a string because im not sure how to change the array size based on his input
+		int arrayLength = 0;	//to count the length of inputs
+		
+		Main.printTitle();
+		System.out.println("Enter int values, enter 000 to end input");
+		
+		numString = Main.storeNumbers(userIn, numString);
+
+		arrayLength = numString.replaceAll(" ", "").length();
+		int[] numList = Main.storeArrayValues( numString, arrayLength);
 		
 		
-		
-		
-		
-		
+		/*
+		 * THIS IS FOR TESTING PURPOSES
+		for(int i = 0; i < numList.length; i++) { 
+			System.out.println(numList[i]);
+		}
+		*/
 
 		
 		
 	}
+
 
 }
