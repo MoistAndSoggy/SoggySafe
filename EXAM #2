@@ -1,0 +1,66 @@
+import java.util.Scanner;
+public class Main {
+	
+	public static void printTitle() {
+		System.out.println("||||||||||||||||||||||||||||||||||||||||||||||||");
+		System.out.println("||                                            ||");
+		System.out.println("||                                            ||");
+		System.out.println("||                  EXAM #2                   ||");
+		System.out.println("||                                            ||");
+		System.out.println("||  Written by: Wesley Stout & Fahd Atanante  ||");
+		System.out.println("||||||||||||||||||||||||||||||||||||||||||||||||");
+		System.out.println();
+		System.out.println();
+		
+	}
+	
+	public static int[] newArray (Scanner userIn, String string) {	//the point of creating this string first is to determine the size of the upcoming array
+		
+
+	}
+
+	public static void organizeArray() {
+		
+	}
+	
+	public static void main(String[]arg) {
+		Scanner userIn = new Scanner(System.in);
+		String numString = "";  //list of numbers as a string because im not sure how to change the array size based on his input
+		int arrayLength = 0;	//to count the length of inputs
+		Main.printTitle();
+		
+		
+		System.out.println("Enter int values, enter 000 to end input");
+		/*
+			boolean toggle = false;  //While this is false the while loop will run
+		
+		while(toggle == false) {
+			for(int i = 0; i < 50; i++) {
+				int in = userIn.nextInt();
+				if(in == 000) {
+					toggle = true;
+					break;
+				}
+				numString = numString + " " + Integer.toString(in);
+				arrayLength++;
+			}
+		}
+		numString = numString.substring(2, numString.length());
+		 */
+		
+
+		
+		System.out.println(arrayLength);
+		int[] numbers = new int[arrayLength];
+		
+		
+		
+		
+		
+		
+
+		
+		
+	}
+
+}
