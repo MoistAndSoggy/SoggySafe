@@ -1,5 +1,5 @@
 import java.util.Scanner;
-
+import java.util.Arrays;
 public class Main {
 	
 	public static void printTitle() {
@@ -14,57 +14,77 @@ public class Main {
 		System.out.println();
 		
 	}
-	public static String storeNumbers(Scanner userIn, String numString) {
-		boolean toggle = false;
-		while(toggle == false) {
-			for(int i = 0; i < 50; i++) {
-				int in = userIn.nextInt();
-				if(in == 000) {
-					toggle = true;
-					break;
+	
+	
+	
+	
+	
+	public static void printArray(int[] array, int counter) {
+		for (int i = 0; i < counter; i++) {
+			System.out.println(array[i]);
+		}
+		
+	}
+	
+	public static int[] fixArrayLength(int[] numbersList, int newSize) {
+		int[] fixedNumberList = new int[newSize];
+		for (int i = 0; i < fixedNumberList.length; i++) {
+			fixedNumberList[i] = numbersList[i];
+		}
+		return fixedNumberList;
+		
+	}
+	
+	public static void printOrganizedList(int[] array) {
+		int[] temp = array;
+		System.out.println("N        Count");
+		for (int i = 0; i < array.length; i++) {
+			int count = 0;
+			
+			for (int j = 0; j < array.length; j++) {
+				if(array[i] == array[j]) {
+					count++;
 				}
-				numString = numString + " " + Integer.toString(in);
+				
+			}
+			for (int n = 0; n < i; n++) {
+				if (temp[n] == array[i]) {
+					continue;
+				}
+				else {
+					System.out.println(array[i] + "        " + count);
+				}
 			}
 		}
-		return numString;
 	}
 	
-	public static int[] storeArrayValues(String numString, int arrayLength) {
-		int[] numList = new int[arrayLength];
-		String[] temporary = numString.trim().split(" ");
-		
-		for(int i = 0; i < arrayLength; i++) {
-			numList[i] = Integer.parseInt(temporary[i]);
-		}
-
-		return numList;
-		
-	}
 	
-	public static void main(String[]arg) {
+	public static void main (String[] arg) {
 		Scanner userIn = new Scanner(System.in);
-		String numString = "";  //list of numbers as a string because im not sure how to change the array size based on his input
-		int arrayLength = 0;	//to count the length of inputs
-		
+		int counter = 0; //for counting the amount of inputs in the array
+		int[] numbersList = new int[50];
 		Main.printTitle();
-		System.out.println("Enter int values, enter 000 to end input");
 		
-		numString = Main.storeNumbers(userIn, numString);
-
-		arrayLength = numString.replaceAll(" ", "").length();
-		int[] numList = Main.storeArrayValues( numString, arrayLength);
+		System.out.println("Enter numbers.  To end input type \"end\"...");
 		
-		
-		/*
-		 * THIS IS FOR TESTING PURPOSES
-		for(int i = 0; i < numList.length; i++) { 
-			System.out.println(numList[i]);
+		for (int i = 0; i < numbersList.length; i++) {
+			String input = userIn.nextLine();
+			
+			if(input.equalsIgnoreCase("end")) {
+				break;
+			}
+			
+			numbersList[i] = Integer.parseInt(input);
+			counter++;
+			
+			
 		}
-		*/
-
+		
+		int[] fixedNumbersList = Main.fixArrayLength(numbersList, counter);
+		Arrays.sort(fixedNumbersList);
+		
+		Main.printOrganizedList(fixedNumbersList);
 		
 		
 	}
-
-
 }
